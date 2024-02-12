@@ -1,9 +1,11 @@
+import Header from "./header"
+import styles from './theme.module.css';
+
 export default function Theme({ children }) {
     return (
         <>
-            {/* <Navbar /> */}
-            <div>nav goes here</div>
-            <main>{children}</main>
+            <Header />
+            <main className={styles.Theme}>{children}</main>
             <div>footer goes here</div>
             {/* <Footer /> */}
         </>

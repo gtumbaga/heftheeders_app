@@ -6,7 +6,11 @@
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 
   --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --background-rgb: 200, 200, 200;
+
+  --hh-orange: rgb(255, 165, 0);
+  --hh-orange-hover: rgb(235, 145, 0);
+  --hh-orange-active: rgb(225, 135, 0);
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -100,4 +104,17 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.btn-primary {
+    background-color: var(--hh-orange) !important;
+    border-color: var(--hh-orange) !important;
+}
+.btn-primary:hover {
+    background-color: var(--hh-orange-hover) !important;
+    border-color: var(--hh-orange-hover) !important;
+}
+.btn-primary:active {
+    background-color: var(--hh-orange-active) !important;
+    border-color: var(--hh-orange-active) !important;
 }
