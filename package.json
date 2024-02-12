@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build; rm -rf ./docs; cp -r ./out ./docs; git checkout ./docs/CNAME",
+    "build": "next build",
+    "deploy": "next build; rm -rf ./docs; cp -r ./out ./docs; touch ./docs/.nojekyll; echo 'hh.omga.be' > ./docs/CNAME",
     "start": "next start",
     "lint": "next lint"
   },
