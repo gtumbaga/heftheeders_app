@@ -87,6 +87,8 @@ body {
 body {
     color: rgb(var(--foreground-rgb));
     background: rgb(var(--background-rgb));
+    min-height: 100vh;
+    font-size: 18px;
 }
 
 a {
