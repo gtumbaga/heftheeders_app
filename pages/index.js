@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import LoginForm from "@/components/LoginForm";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +19,8 @@ export default function Home() {
 
         <Container>
             <Row>
-                <Col xs={6}>
-                      gabe was here...
-                      <Button>Click</Button>
-                </Col>
-                <Col xs={6}>
-                      gabe was here...
-                      <Button variant={"secondary"}>Click again</Button>
+                <Col xs={12}>
+                    <LoginForm />
                 </Col>
             </Row>
         </Container>

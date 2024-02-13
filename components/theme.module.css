@@ -1,0 +1,15 @@
+.Theme {
+    padding: 0 10px;
+}
+.Theme :global .gCard {
+    padding: 20px 5px;
+    max-width: 640px;
+    background: #fff;
+    border-radius: 8px;
+    margin: 0 auto;
+    min-height: 300px;
+}
+.Theme :global .dailyStreak {
+    text-align: center;
+    margin: 10px;
+}
