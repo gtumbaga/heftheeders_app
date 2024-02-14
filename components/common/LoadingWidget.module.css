@@ -1,0 +1,18 @@
+.LoadingWidget {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    left: calc(50% - 40px);
+    top: 50px;
+  }
+  .LoadingWidget :global div {
+    position: absolute;
+    border: 4px solid #000;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .LoadingWidget :global div:nth-child(2) {
+    animation-delay: -0.5s;
+  }

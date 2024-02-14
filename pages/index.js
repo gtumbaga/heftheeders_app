@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import LoginForm from "@/components/LoginForm";
+import Main from "@/components/Main";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +18,7 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <Container>
-            <Row>
-                <Col xs={12}>
-                    <LoginForm />
-                </Col>
-            </Row>
-        </Container>
+        <Main />
 
     </>
   );
