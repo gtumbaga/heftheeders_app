@@ -1,0 +1,60 @@
+.Bubbles :global .weekOf {
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+.Bubbles :global .dayGrid {
+    display: flex;
+}
+.Bubbles :global .day {
+    flex: 1;
+    padding: 3px;
+    padding-bottom: 6px;
+    border-bottom: solid 2px #fff;
+}
+.Bubbles :global .day .circle {
+    position: relative;
+    padding-bottom: 100%;
+}
+.Bubbles :global .day i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-style: normal;
+    font-weight: bold;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: solid 1px orange;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    text-align: center;
+}
+.Bubbles :global .day i .small {
+    font-weight: normal;
+    margin-bottom: -2px;
+}
+.Bubbles :global .day.good i {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: solid 1px orange;
+    background: orange;
+    color: #fff;
+    border-radius: 50%;
+}
+.Bubbles :global .dayGrid.chosen-0 .day.day-1,
+.Bubbles :global .dayGrid.chosen-1 .day.day-2,
+.Bubbles :global .dayGrid.chosen-2 .day.day-3,
+.Bubbles :global .dayGrid.chosen-3 .day.day-4,
+.Bubbles :global .dayGrid.chosen-4 .day.day-5,
+.Bubbles :global .dayGrid.chosen-5 .day.day-6,
+.Bubbles :global .dayGrid.chosen-6 .day.day-7
+{
+    border-bottom-color: #000;
+}

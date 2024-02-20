@@ -5,6 +5,7 @@ import Header from "./header";
 import Footer from "./footer";
 import LoginForm from "./LoginForm";
 import LoadingWidget from "./common/LoadingWidget";
+import Bubbles from "./Bubbles";
 
 const Main = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -12,6 +13,8 @@ const Main = () => {
     const [authToken, setAuthToken] = useState(null);
     const [dateStrings, setDateStrings] = useState(null);
     const [weekData, setWeekData] = useState({});
+    const [currentChosenDate, setCurrentChosenDate] = useState(null);
+    const [currentChosenDateIndex, setCurrentChosenDateIndex] = useState(null);
 
     useEffect(() => {
         // check if we have a token stored in LS
@@ -74,6 +77,11 @@ const Main = () => {
                 `${day7_Date.getFullYear()}-${day7_Date.getMonth()+1}-${day7_Date.getDate()}`,
             ];
 
+            const currentDayLabel = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`;
+
+            const currentDayIdx = dateLabels.indexOf(currentDayLabel);
+            setCurrentChosenDateIndex(currentDayIdx);
+            setCurrentChosenDate(currentDayLabel);
             setDateStrings([...dateLabels]);
 
             let tmpWeekData = {};
@@ -152,6 +160,10 @@ const Main = () => {
         }
     });
 
+    const handleDateChoose = useCallback((idx) => {
+        setCurrentChosenDateIndex(idx);
+    });
+
     return(
         <>
             <Header />
@@ -162,8 +174,12 @@ const Main = () => {
                     { !isLoading && !isLoggedIn &&
                         <LoginForm onSubmit={handleSubmit} />
                     }
-                    { !isLoading && isLoggedIn &&
-                        <div>welcome</div>
+                    { !isLoading && isLoggedIn && weekData &&
+                        <Bubbles
+                            weekData={weekData}
+                            currentDay={currentChosenDateIndex}
+                            onClickDay={handleDateChoose}
+                        />
                     }
                 </Theme>
             <Footer />
