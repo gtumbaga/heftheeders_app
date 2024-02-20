@@ -6,6 +6,8 @@ import Footer from "./footer";
 import LoginForm from "./LoginForm";
 import LoadingWidget from "./common/LoadingWidget";
 import Bubbles from "./Bubbles";
+import Stats from "./Stats";
+import DayBreakout from "./DayBreakout";
 
 const Main = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -175,11 +177,15 @@ const Main = () => {
                         <LoginForm onSubmit={handleSubmit} />
                     }
                     { !isLoading && isLoggedIn && weekData &&
-                        <Bubbles
-                            weekData={weekData}
-                            currentDay={currentChosenDateIndex}
-                            onClickDay={handleDateChoose}
-                        />
+                        <>
+                            <Bubbles
+                                weekData={weekData}
+                                currentDay={currentChosenDateIndex}
+                                onClickDay={handleDateChoose}
+                            />
+                            <Stats />
+                            <DayBreakout />
+                        </>
                     }
                 </Theme>
             <Footer />
