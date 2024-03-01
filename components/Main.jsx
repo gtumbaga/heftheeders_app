@@ -45,7 +45,7 @@ const Main = () => {
     }, []);
 
     useEffect(() => {
-        if (isLoggedIn === true) {
+        if ((isLoggedIn === true) && (authToken)) {
             // user is logged in, so lets get the initial week
             setIsLoading(true);
             let currentDate = new Date();
@@ -155,6 +155,7 @@ const Main = () => {
         const response = await axios.post(url, payload);
 
         if (response && response.data.success == true) {
+            console.log('successful response is:', response);
             localStorage.setItem("token", response.data.data.token);
             setIsLoggedIn(true);
         } else {
