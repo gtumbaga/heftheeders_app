@@ -29,13 +29,13 @@ const Bubbles = ({weekData, currentDay, onClickDay}) => {
         <div className={styles.Bubbles}>
             <div className="weekOf mb-2">Week of: {day1Label} - {day7Label}</div>
             <div className={`dayGrid chosen-${currentDay}`}>
-                <div className="day day-1" onClick={() => handleDayClick(1)}><div className="circle"><i>M</i></div></div>
-                <div className="day day-2" onClick={() => handleDayClick(2)}><div className="circle"><i>T<span className="small">u</span></i></div></div>
-                <div className="day day-3" onClick={() => handleDayClick(3)}><div className="circle"><i>W</i></div></div>
-                <div className="day day-4"  onClick={() => handleDayClick(4)}><div className="circle"><i>T<span className="small">h</span></i></div></div>
-                <div className="day day-5" onClick={() => handleDayClick(5)}><div className="circle"><i>F</i></div></div>
-                <div className="day day-6"  onClick={() => handleDayClick(6)}><div className="circle"><i>S<span className="small">a</span></i></div></div>
-                <div className="day day-7" onClick={() => handleDayClick(7)}><div className="circle"><i>S<span className="small">u</span></i></div></div>
+                <div title="Monday" className="day day-1" onClick={() => handleDayClick(1)}><div className="circle"><i>M</i></div></div>
+                <div title="Tuesday" className="day day-2" onClick={() => handleDayClick(2)}><div className="circle"><i>T<span className="small">u</span></i></div></div>
+                <div title="Wednesday" className="day day-3" onClick={() => handleDayClick(3)}><div className="circle"><i>W</i></div></div>
+                <div title="Thursday" className="day day-4"  onClick={() => handleDayClick(4)}><div className="circle"><i>T<span className="small">h</span></i></div></div>
+                <div title="Friday" className="day day-5" onClick={() => handleDayClick(5)}><div className="circle"><i>F</i></div></div>
+                <div title="Saturday" className="day day-6"  onClick={() => handleDayClick(6)}><div className="circle"><i>S<span className="small">a</span></i></div></div>
+                <div title="Sunday" className="day day-7" onClick={() => handleDayClick(7)}><div className="circle"><i>S<span className="small">u</span></i></div></div>
             </div>
         </div>
     );
