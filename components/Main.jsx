@@ -49,6 +49,10 @@ const Main = () => {
             // user is logged in, so lets get the initial week
             setIsLoading(true);
             let currentDate = new Date();
+            console.log('current date, unmodified', currentDate.valueOf());
+            const newDate = new Date();
+            newDate.setTime(parseInt(currentDate.valueOf()) + (-10 * 24 * 60 * 60 * 1000));
+            console.log('current date, setdate', (newDate));
             // currentDate = new Date(new Date().setDate(new Date().getDate() + 4)); //this is the 23rd
 
             // derive 1st day of current week (monday)
@@ -60,14 +64,20 @@ const Main = () => {
             } else {
                 dayAdjustment = (day - 1) * -1;
             }
-            const startDate = new Date(new Date().setDate(currentDate.getDate() + dayAdjustment));
-
-            const day2_Date = new Date(new Date().setDate(startDate.getDate() + 1));
-            const day3_Date = new Date(new Date().setDate(startDate.getDate() + 2));
-            const day4_Date = new Date(new Date().setDate(startDate.getDate() + 3));
-            const day5_Date = new Date(new Date().setDate(startDate.getDate() + 4));
-            const day6_Date = new Date(new Date().setDate(startDate.getDate() + 5));
-            const day7_Date = new Date(new Date().setDate(startDate.getDate() + 6));
+            const startDate = new Date(new Date().setTime(parseInt(currentDate.valueOf()) + (dayAdjustment * 24 * 60 * 60 * 1000)));
+            // console.log('labels start date', startDate);
+            const day2_Date = new Date(new Date().setTime(parseInt(startDate.valueOf()) + (1 * 24 * 60 * 60 * 1000)));
+            // console.log('labels day 2', day2_Date);
+            const day3_Date = new Date(new Date().setTime(parseInt(startDate.valueOf()) + (2 * 24 * 60 * 60 * 1000)));
+            // console.log('labels day 3', day3_Date);
+            const day4_Date = new Date(new Date().setTime(parseInt(startDate.valueOf()) + (3 * 24 * 60 * 60 * 1000)));
+            // console.log('labels day 4', day4_Date);
+            const day5_Date = new Date(new Date().setTime(parseInt(startDate.valueOf()) + (4 * 24 * 60 * 60 * 1000)));
+            // console.log('labels day 5', day5_Date);
+            const day6_Date = new Date(new Date().setTime(parseInt(startDate.valueOf()) + (5 * 24 * 60 * 60 * 1000)));
+            // console.log('labels day 6', day6_Date);
+            const day7_Date = new Date(new Date().setTime(parseInt(startDate.valueOf()) + (6 * 24 * 60 * 60 * 1000)));
+            // console.log('labels day 7', day7_Date);
 
             const dateLabels = [
                 `${startDate.getFullYear()}-${startDate.getMonth()+1}-${startDate.getDate()}`,
@@ -78,6 +88,8 @@ const Main = () => {
                 `${day6_Date.getFullYear()}-${day6_Date.getMonth()+1}-${day6_Date.getDate()}`,
                 `${day7_Date.getFullYear()}-${day7_Date.getMonth()+1}-${day7_Date.getDate()}`,
             ];
+
+            // console.log('labels full', dateLabels);
 
             const currentDayLabel = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`;
 

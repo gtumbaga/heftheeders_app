@@ -5,11 +5,12 @@ import { checkIsOnDemandRevalidate } from 'next/dist/server/api-utils';
 const Bubbles = ({weekData, currentDay, onClickDay}) => {
     const dateWithoutYear = (date) => {
         if (date) {
+            console.log('date in bubbles', date);
             const parts = date.split('-');
 
             const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 
-            const strMonth = months[parseInt(parts[1]) + 1];
+            const strMonth = months[parseInt(parts[1]) - 1];
 
             return `${strMonth} ${parts[2]}`;
         } else {
