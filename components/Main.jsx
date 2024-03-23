@@ -8,6 +8,7 @@ import LoadingWidget from "./common/LoadingWidget";
 import Bubbles from "./Bubbles";
 import Stats from "./Stats";
 import DayBreakout from "./DayBreakout";
+import SearchResults from "./SearchResults";
 
 const Main = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -17,6 +18,8 @@ const Main = () => {
     const [weekData, setWeekData] = useState({});
     const [currentChosenDate, setCurrentChosenDate] = useState(null);
     const [currentChosenDateIndex, setCurrentChosenDateIndex] = useState(null);
+    const [searchTerm, setSearchTerm] = useState(null);
+    const [searchVal, setSearchVal] = useState('');
 
     useEffect(() => {
         // check if we have a token stored in LS
@@ -180,9 +183,13 @@ const Main = () => {
         setCurrentChosenDateIndex(idx);
     });
 
+    const handleSearchClear = useCallback(() => {
+        setSearchTerm(null);
+    });
+
     return(
         <>
-            <Header />
+            <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
                 <Theme>
                     { isLoading &&
                         <LoadingWidget />
@@ -192,13 +199,20 @@ const Main = () => {
                     }
                     { !isLoading && isLoggedIn && weekData &&
                         <>
-                            <Bubbles
-                                weekData={weekData}
-                                currentDay={currentChosenDateIndex}
-                                onClickDay={handleDateChoose}
-                            />
-                            <Stats />
-                            <DayBreakout />
+                            { (!searchTerm) &&
+                            <>
+                                <Bubbles
+                                    weekData={weekData}
+                                    currentDay={currentChosenDateIndex}
+                                    onClickDay={handleDateChoose}
+                                />
+                                <Stats />
+                                <DayBreakout />
+                            </>
+                            }
+                            { (searchTerm) &&
+                                <SearchResults searchTerm={searchTerm} onClickClose={handleSearchClear} />
+                            }
                         </>
                     }
                 </Theme>

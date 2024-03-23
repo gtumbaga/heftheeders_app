@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 // import "./styles.css";
 import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -8,11 +8,29 @@ import styles from './header.module.css';
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 
-const Header = () => {
+const Header = ({searchTerm, setSearchTerm = null}) => {
     const [show, setShow] = useState(false);
+    const [searchVal, setSearchVal] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    useEffect(() => {
+        if (!searchTerm) {
+            setSearchVal('');
+        }
+    }, [searchTerm]);
+
+    const handleSearchType = useCallback((e) => {
+        const txt = e.target.value;
+        setSearchVal(txt);
+    });
+
+    const handleSearchClick = useCallback(() => {
+        if (setSearchTerm) {
+            setSearchTerm(searchVal);
+        }
+    });
 
 
     return (
@@ -25,9 +43,17 @@ const Header = () => {
                 </div>
                 <div className="bottomRow">
                         <div class="input-group mb-1">
-                            <input type="text" class="form-control" placeholder="Search..." aria-label="search text" aria-describedby="searchText" />
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button">&#x1F50D;</button>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Search..."
+                                aria-label="search text"
+                                aria-describedby="searchText"
+                                value={searchVal}
+                                onChange={handleSearchType}
+                            />
+                                <div className="input-group-append">
+                                    <button className="btn btn-outline-secondary" type="button" onClick={handleSearchClick}>&#x1F50D;</button>
                                 </div>
                         </div>
 
