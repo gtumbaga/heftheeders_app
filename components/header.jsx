@@ -24,9 +24,13 @@ const Header = () => {
                     </Button>
                 </div>
                 <div className="bottomRow">
-                    <div>
-                        row 2
-                    </div>
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control" placeholder="Search..." aria-label="search text" aria-describedby="searchText" />
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button">&#x1F50D;</button>
+                                </div>
+                        </div>
+
                 </div>
                 <Offcanvas show={show} onHide={handleClose}>
                     <Offcanvas.Header closeButton>

@@ -5,3 +5,11 @@
 .Header :global .btn-hamburger {
     color: #fff;
 }
+.Header :global .input-group input {
+    border: solid 1px #6c757d;
+}
+.Header :global .input-group .btn {
+    background: #fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

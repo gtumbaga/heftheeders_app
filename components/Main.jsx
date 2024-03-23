@@ -89,7 +89,7 @@ const Main = () => {
                 `${day7_Date.getFullYear()}-${day7_Date.getMonth()+1}-${day7_Date.getDate()}`,
             ];
 
-            // console.log('labels full', dateLabels);
+            console.log('labels full', dateLabels);
 
             const currentDayLabel = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}`;
 
@@ -115,6 +115,7 @@ const Main = () => {
             console.log('dayadjust', dayAdjustment);
 
             const url = `${process.env.NEXT_PUBLIC_API_URL}/api/week/${dateLabels[0]}`
+            console.log('getting week data from: ', url);
 
             const config = {
                 headers: { Authorization: `Bearer ${authToken}` }
